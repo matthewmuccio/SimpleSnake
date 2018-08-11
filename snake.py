@@ -28,8 +28,8 @@ snake = [
 
 # Creates default food and sets its default position.
 food = [screen_height / 2, screen_width / 2]
-# Adds food to the window.
-window.addch(food[0], food[1], curses.ACS_PI)
+# Adds default food to the window.
+window.addch(food[0], food[1], curses.ACS_BULLET)
 
 # Set snake's default direction (right).
 key = curses.KEY_RIGHT
@@ -47,7 +47,8 @@ while True:
 		snake[0] in snake[1:]:
 		# Close the window, and quit the application.
 		curses.endwin()
-		quit()
+		print("[SimpleSnake] Game over!")
+		break
 
 	# Create new head of the snake (default, set old head of snake as starting point).
 	new_snake_head = [snake[0][0], snake[0][1]]
@@ -77,7 +78,7 @@ while True:
 			# Check if new food is not in snake already, and loops again if it already is.
 			food = new_food if new_food not in snake else None
 		# Once new food has been created, add it to the window.
-		window.addch(food[0], food[1], curses.ACS_PI)
+		window.addch(food[0], food[1], curses.ACS_BULLET)
 	# If the snake has not run into food.
 	else:
 		# Get tail, and add space at the end of the snake where the tail was.

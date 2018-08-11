@@ -1,4 +1,4 @@
 clear
-echo "Running SimpleSnake ..."
-echo "SimpleSnake loaded!"
+echo "[SimpleSnake] Running application ..."
+echo "[SimpleSnake] Application loaded!"
 python snake.py
